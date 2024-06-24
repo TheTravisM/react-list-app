@@ -1,12 +1,22 @@
 import { React } from "react";
 import Counter from './Counter';
 
-const Item = () => {
+const Item = (props) => {
+  const {
+    id,
+    itemName,
+    itemQuantity
+  } = props;
+
   return (
-    <div className='item'>
+    <div 
+      id={`${id}`}
+      className='item'>
       <button className='remove-item' />
-      <span className='item-name'>CPU</span>
-      <Counter />
+      <span className='item-name'>{itemName}</span>
+      <Counter
+        itemQuantity={itemQuantity}
+      />
     </div>
   )
 }

@@ -37,6 +37,10 @@ header h1 {
   letter-spacing: 2px;
 }
 
+.item:hover {
+  background-color: #ffcaca;
+}
+
 .remove-item:hover+.item-name {
   text-decoration: line-through;
 }

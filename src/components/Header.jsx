@@ -1,20 +1,21 @@
-import { React } from "react";
+import React from 'react';
 
 const Header = (props) => {
-  const {} = props;
-
-  const title = "First element";
-  const desc = "Created recat node and rendered it into the DOM";
-  const mainTitleId = "main-title";
-  const name = "Jackie";
+  const {
+    title,
+    headerId,
+    itemTotal
+  } = props;
 
   return (
-    <header>
-      <h1 id={mainTitleId}>{title}</h1>
-      <h2>{name}</h2>
-      <p className="main–description">{desc}</p>
-      <input value={10 * 20} />
-      <span className="total-ietms">Items: 1</span>
+    <header
+      id={headerId}>
+      <h1>
+        {title}
+      </h1>
+      <span className="total-items">
+        Items: {itemTotal}
+    </span>
     </header>
   );
 }

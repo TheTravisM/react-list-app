@@ -11,11 +11,12 @@ const App = (props) => {
   const [headerTitle, setHeaderTitle] = useState("");
   const [headerId, setHeaderId] = useState("");
   const [itemTotal, setItemTotal] = useState(0);
+  const [items, setItems] = useState(itemsData.items);
 
   useEffect(() => {
     setHeaderTitle("Micro Center List");
     setHeaderId("Micro Center List");
-    setItemTotal(initalList.length);
+    setItemTotal(items.length);
   }, []);
 
   useEffect(() => {}, []);
@@ -27,12 +28,12 @@ const App = (props) => {
         title={headerTitle} 
         itemTotal={itemTotal} 
       />
-      {initalList.map((item, index) => (
+      {items.map((item, index) => (
         <Item
           key={index}
           id={index}
-          itemName={item.name} 
-          itemQuantity={item.quantity}
+          itemName={item.name}
+          setItems={setItems}
         />
       ))}
     </main>
@@ -42,6 +43,6 @@ const App = (props) => {
 const root = createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <App initalList={itemsData.items}/>
+    <App />
   </StrictMode>
 );

@@ -5,18 +5,23 @@ const Item = (props) => {
   const {
     id,
     itemName,
-    itemQuantity
+    setItems
   } = props;
+
+  const handleRemoveItem = (id) => {
+    setItems( prevItems => prevItems.filter( i => i.id !== id))
+  }
 
   return (
     <div 
       id={`${id}`}
       className='item'>
-      <button className='remove-item' />
-      <span className='item-name'>{itemName}</span>
-      <Counter
-        itemQuantity={itemQuantity}
+      <button 
+        className='remove-item' 
+        onClick={handleRemoveItem}
       />
+      <span className='item-name'>{itemName}</span>
+      <Counter />
     </div>
   )
 }

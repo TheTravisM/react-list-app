@@ -3,21 +3,21 @@ import Counter from './Counter';
 
 const Item = (props) => {
   const {
-    name,
-    index,
+    itemName,
+    itemIndex,
     handleRemoveItem
   } = props;
 
   return (
   <div 
-      id={`${index}`}
+      id={`${itemIndex}`}
       className='item'>
       <button 
         className='remove-item' 
-        onClick={() => handleRemoveItem(index)}
+        onClick={() => handleRemoveItem(itemIndex)}
       />
       <span className='item-name'>
-        {name}
+        {itemName}
       </span>
       <Counter />
     </div>

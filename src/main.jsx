@@ -37,8 +37,8 @@ const App = (props) => {
       {items.map((item, index) => (
         <Item
           key={index}
-          index={index}
-          name={item.name}
+          itemIndex={index}
+          itemName={item.name}
           handleRemoveItem={handleRemoveItem}
         />
       ))}

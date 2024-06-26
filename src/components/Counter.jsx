@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
 const Counter = (props) => {
-  const {itemName } = props;
-
   const [itemQuantity, setQuantity]  = useState(0);
 
   const increaseQty = () => {

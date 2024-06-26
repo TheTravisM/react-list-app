@@ -1,0 +1,28 @@
+{
+    "header": {
+      "title": "Micro Center List",
+      "id": "AppId"
+    },
+    "items": [
+      {
+        "name": "CPU",
+        "quantity": 1
+      },
+      {
+        "name": "GPU",
+        "quantity": 1
+      },
+      {
+        "name": "Mother Board",
+        "quantity": 1
+      },
+      {
+        "name": "RAM",
+        "quantity": 4
+      },
+      {
+        "name": "SSD",
+        "quantity": 3
+      }
+    ]
+  }

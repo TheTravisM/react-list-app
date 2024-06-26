@@ -3,24 +3,22 @@ import Counter from './Counter';
 
 const Item = (props) => {
   const {
-    id,
-    itemName,
-    setItems
+    name,
+    index,
+    handleRemoveItem
   } = props;
 
-  const handleRemoveItem = (id) => {
-    setItems( prevItems => prevItems.filter( i => i.id !== id))
-  }
-
   return (
-    <div 
-      id={`${id}`}
+  <div 
+      id={`${index}`}
       className='item'>
       <button 
         className='remove-item' 
-        onClick={handleRemoveItem}
+        onClick={() => handleRemoveItem(index)}
       />
-      <span className='item-name'>{itemName}</span>
+      <span className='item-name'>
+        {name}
+      </span>
       <Counter />
     </div>
   )

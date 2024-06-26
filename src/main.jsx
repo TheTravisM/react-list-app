@@ -2,24 +2,30 @@ import { createRoot } from 'react-dom/client';
 import React, { StrictMode, useEffect, useState } from 'react';
 import Header from './components/Header';
 import Item from './components/Item';
-import itemsData from './data/itemsData';
+//import itemsData from './data/itemsData.json';
+import appData from './data/appData.json';
 
 const App = (props) => {
-  const {
-    initalList
-  } = props
+  const { } = props
   const [headerTitle, setHeaderTitle] = useState("");
   const [headerId, setHeaderId] = useState("");
   const [itemTotal, setItemTotal] = useState(0);
-  const [items, setItems] = useState(itemsData.items);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    setHeaderTitle("Micro Center List");
-    setHeaderId("Micro Center List");
-    setItemTotal(items.length);
+    setHeaderTitle(appData.header.title);
+    setHeaderId(appData.header.id);
+    setItems(appData.items);
+    setItemTotal(appData.items.length);
   }, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setItemTotal(appData.items.length);
+  }, [items]);
+
+  const handleRemoveItem = (index) => {
+    setItems(prevItems => prevItems.filter((_, item) => item !== index));
+  };
 
   return (
     <main className="react-list">
@@ -31,9 +37,9 @@ const App = (props) => {
       {items.map((item, index) => (
         <Item
           key={index}
-          id={index}
-          itemName={item.name}
-          setItems={setItems}
+          index={index}
+          name={item.name}
+          handleRemoveItem={handleRemoveItem}
         />
       ))}
     </main>
